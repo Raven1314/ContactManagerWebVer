@@ -1,0 +1,73 @@
+﻿@model HarrisContactWebVer.Models.BusinessContact
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>BusinessContact</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BFname" class="control-label"></label>
+                <input asp-for="BFname" class="form-control" />
+                <span asp-validation-for="BFname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BLname" class="control-label"></label>
+                <input asp-for="BLname" class="form-control" />
+                <span asp-validation-for="BLname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BEmail" class="control-label"></label>
+                <input asp-for="BEmail" class="form-control" />
+                <span asp-validation-for="BEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BusTel" class="control-label"></label>
+                <input asp-for="BusTel" class="form-control" />
+                <span asp-validation-for="BusTel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BAddr1" class="control-label"></label>
+                <input asp-for="BAddr1" class="form-control" />
+                <span asp-validation-for="BAddr1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BAddr2" class="control-label"></label>
+                <input asp-for="BAddr2" class="form-control" />
+                <span asp-validation-for="BAddr2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BAddr3" class="control-label"></label>
+                <input asp-for="BAddr3" class="form-control" />
+                <span asp-validation-for="BAddr3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BPostcode" class="control-label"></label>
+                <input asp-for="BPostcode" class="form-control" />
+                <span asp-validation-for="BPostcode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BCity" class="control-label"></label>
+                <input asp-for="BCity" class="form-control" />
+                <span asp-validation-for="BCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
