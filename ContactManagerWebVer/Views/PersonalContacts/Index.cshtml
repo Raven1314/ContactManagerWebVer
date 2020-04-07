@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ContactManagerWebVer.Models.PersonalContact>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PFname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PLname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PerTel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PAddr1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PAddr2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PAddr3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PPostcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PCity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PFname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PLname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerTel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PAddr1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PAddr2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PAddr3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PPostcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PCity)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PersonalContactID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PersonalContactID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PersonalContactID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

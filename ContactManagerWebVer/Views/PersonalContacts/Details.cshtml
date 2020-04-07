@@ -1,0 +1,72 @@
+﻿@model ContactManagerWebVer.Models.PersonalContact
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>PersonalContact</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PFname)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PFname)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PLname)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PLname)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PEmail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PEmail)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PerTel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PerTel)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PAddr1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PAddr1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PAddr2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PAddr2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PAddr3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PAddr3)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PPostcode)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PPostcode)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PCity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PCity)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PersonalContactID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
