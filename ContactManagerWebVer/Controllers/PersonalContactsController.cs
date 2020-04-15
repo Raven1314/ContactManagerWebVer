@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ContactManagerWebVer.Data;
 using ContactManagerWebVer.Models;
+using HarrisContactWebVer.Models;
 
 namespace ContactManagerWebVer.Controllers
 {
@@ -20,9 +21,21 @@ namespace ContactManagerWebVer.Controllers
         }
 
         // GET: PersonalContacts
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string search)
         {
-            return View(await _context.PersonalContacts.ToListAsync());
+            /// <summary>
+            /// Contact search, code resued from  RapidLaunch project 
+            /// </summary>
+            ViewData["ContactFilter"] = search;
+            var contactFilter = from s in _context.PersonalContacts
+                              select s;
+            if (!String.IsNullOrEmpty(search))
+            {
+                contactFilter = contactFilter.Where(s => s.PFname.Contains(search) || s.PLname.Contains(search) || s.PerTel.Contains(search) || s.PEmail.Contains(search));//searth the text that have been passed from the index 
+            }
+            return View(await contactFilter.AsNoTracking().ToListAsync());
+
+            // return View(await _context.PersonalContacts.ToListAsync());
         }
 
         // GET: PersonalContacts/Details/5
@@ -143,11 +156,14 @@ namespace ContactManagerWebVer.Controllers
             _context.PersonalContacts.Remove(personalContact);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
 
-        private bool PersonalContactExists(int id)
+            
+            }
+            private bool PersonalContactExists(int id)
         {
             return _context.PersonalContacts.Any(e => e.PersonalContactID == id);
         }
+
+
     }
 }
